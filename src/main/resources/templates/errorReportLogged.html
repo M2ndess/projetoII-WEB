@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Reportar Erro</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"  />
+  <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
+  <style>
+    .form-container {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .custom-box-bg-color{
+      background-color: #F6EACC;
+    }
+    body{
+      background-color: #edd7a3 ;
+    }
+    .nav-link{
+      font-family: 'Italianno', cursive;
+      font-size: 25px;
+    }
+    .navbar-brand{
+      font-family: 'Italianno', cursive;
+      font-size: 50px;
+    }
+    .custom-button-color{
+      background-color: #712D1F;
+      border-color: #712D1F;
+      font-family: 'Italianno', cursive;
+    }
+    .custom-topbar-bg-color{
+      background-color: #6D2919;
+    }
+  </style>
+</head>
+
+
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark custom-topbar-bg-color">
+  <a class="navbar-brand" th:href="@{/indexLogged}">Impletum</a>
+  <div class="navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/encomendasList}">Encomendas</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/productList}">Carrinho</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/shoppingCart}">Carrinho</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/settings}">Definições</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/errorReportLogged}">Reportar Erro</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/index}">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <form th:action="@{/errorReportLogged}" method="post">
+    <div class="form-container">
+      <label for="typeofError"></label>
+      <input type="text" class="form-control custom-box-bg-color" id="typeofError" name="typeofError" required placeholder="Tipo de Erro">
+    </div>
+    <div class="form-container">
+      <label for="message"></label>
+      <textarea class="form-control custom-box-bg-color" id="message" name="message" rows="5" required placeholder="Descrição do Erro"></textarea>
+    </div>
+    <br>
+    <div style="text-align: center">
+      <button type="submit" class="btn btn-primary custom-button-color">Enviar Relatório</button>
+    </div>
+  </form>
+</div>
+
+</body>
+</html>

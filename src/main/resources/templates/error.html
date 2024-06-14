@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Reportar Erro</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"  />
+  <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
+  <style>
+    .form-container {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .custom-box-bg-color{
+      background-color: #F6EACC;
+    }
+    body{
+      background-color: #edd7a3 ;
+    }
+    .nav-link{
+      font-family: 'Italianno', cursive;
+      font-size: 25px;
+    }
+    .navbar-brand{
+      font-family: 'Italianno', cursive;
+      font-size: 50px;
+    }
+    .custom-button-color{
+      background-color: #712D1F;
+      border-color: #712D1F;
+    }
+    .custom-topbar-bg-color{
+      background-color: #6D2919;
+    }
+  </style>
+</head>
+
+
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark custom-topbar-bg-color">
+  <a class="navbar-brand" th:href="@{/index}">Impletum</a>
+  <div class="navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/login}">Login</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/register}">Register</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/errorReport}">Reportar Erro</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<br>
+<div class="container">
+  <div class="alert alert-danger" role="alert">
+    <strong>Error:</strong> <span th:text="${error}"></span>
+  </div>
+  <div style="text-align: center">
+  <a href="javascript:history.back()" class="btn btn-primary custom-button-color">Voltar a Pagina Anterior</a>
+  </div>
+</div>

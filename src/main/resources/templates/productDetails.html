@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Product List</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+  <style>
+    .form-container {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .custom-box-bg-color{
+      background-color: #F6EACC;
+    }
+    body{
+      background-color: #edd7a3 ;
+    }
+    .nav-link{
+      font-family: 'Italianno', cursive;
+      font-size: 25px;
+    }
+    .navbar-brand{
+      font-family: 'Italianno', cursive;
+      font-size: 50px;
+    }
+    .custom-button-color{
+      background-color: #712D1F;
+      border-color: #712D1F;
+    }
+    .custom-topbar-bg-color{
+      background-color: #6D2919;
+    }
+    .card-list {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .card-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 20px;
+      padding: 10px;
+    }
+
+    .card-details {
+      display: flex;
+      align-items: center;
+      font-family: 'Fuzzy Bubbles', cursive;
+      font-size: 25px;
+    }
+
+    .card-state {
+      margin-left: auto;
+      font-family: 'Fuzzy Bubbles', cursive;
+      font-size: 25px;
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-md navbar-dark custom-topbar-bg-color">
+  <a class="navbar-brand" th:href="@{/indexLogged}">Impletum</a>
+  <div class="navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/encomendasList}">Encomendas</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/productList}">Produtos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/shoppingCart}">Carrinho</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/settings}">Definições</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/errorReportLogged}">Reportar Erro</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/index}">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<br>
+<div class="form-container">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title" th:text="'Tipo de Enchido: '+${product.getTipoEnchido()}"></h5>
+      <h6 class="card-title" th:text="'Descrição: '+${product.getDescricao()}"></h6>
+      <p class="card-title" th:text="'Custo Unitario: '+${product.getCustoUnitario()}+' $'"></p>
+    </div>
+  </div>
+  <br>
+  <form th:action="@{/cart/add}" method="post" style="text-align: center">
+    <input type="hidden" name="productId" th:value="${product.getIdEnchido()}">
+    <div class="form-group">
+      <label for="quantidade">Quantidade:</label>
+      <input type="number" class="form-control" id="quantidade" name="quantidade" value="1" />
+    </div>
+    <button type="submit" class="btn btn-primary custom-button-color">Add to Cart</button>
+    <a href="javascript:history.back()" class="btn btn-primary custom-button-color">Voltar a Pagina Anterior</a>
+  </form>
+</div>
+</body>
+</html>
