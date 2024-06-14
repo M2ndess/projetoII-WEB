@@ -1,74 +1,59 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Login Form</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
-    <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
-    <style>
-        .form-container {
-            max-width: 500px;
-            margin: 0 auto;
-        }
-        .custom-box-bg-color{
-            background-color: #F6EACC;
-        }
-        body{
-            background-color: #edd7a3 ;
-        }
-        .nav-link{
-            font-family: 'Italianno', cursive;
-            font-size: 25px;
-        }
-        .navbar-brand{
-            font-family: 'Italianno', cursive;
-            font-size: 50px;
-        }
-        .custom-button-color{
-            background-color: #712D1F;
-            border-color: #712D1F;
-            font-family: 'Italianno', cursive;
-            font-size: 25px;
-        }
-        .custom-topbar-bg-color{
-            background-color: #6D2919;
-        }
-    </style>
-</head>
-
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"/>
+    <link href="/login.css" rel="stylesheet"/>
+    <title>Document</title></head>
 <body>
-<nav class="navbar navbar-expand-md navbar-dark custom-topbar-bg-color">
-    <a class="navbar-brand" th:href="@{/index}">Impletum</a>
-    <div class="navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{/login}">Login</a>
-            </li>
-        </ul>
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{/register}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{/errorReport}">Reportar Erro</a>
-            </li>
-        </ul>
+<div class="v26_5">
+    <div class="v26_6"></div>
+    <div class="v26_7"></div>
+    <div class="v26_129">
+        <div class="v26_130">
+            <div class="v26_131"></div>
+            <span class="v26_132">Não tem conta e gostaria de aderir ao nosso serviço?</span></div>
+        <div class="v26_133">
+            <div class="v26_134"></div>
+            <span class="v26_135">Saiba Mais</span></div>
     </div>
-</nav>
-
-<div class="container">
-    <form th:action="@{/login}" method="post">
-        <div class="form-container">
-            <label for="username"></label>
-            <input type="text" class="form-control custom-box-bg-color" id="username" name="username" required placeholder="Username">
+    <div class="v52_163">
+        <div class="v26_116">
+            <div class="v26_117">
+                <div class="v26_118">
+                    <div class="v26_119"></div>
+                    <span class="v26_120">Entrar</span></div>
+            </div>
+            <div class="name"></div>
         </div>
-        <div class="form-container">
-            <label for="password"></label>
-            <input type="password" class="form-control custom-box-bg-color" id="password" name="password" required placeholder="Password">
+        <div class="v26_85">
+            <div class="v26_86">
+                <div class="v26_87"></div>
+            </div>
+            <span class="v26_88">Utilizador</span>
+            <div class="name"></div>
         </div>
-        <br>
-        <div style="text-align: center">
-            <button type="submit" class="btn btn-primary custom-button-color">Login</button>
+        <div class="v26_92">
+            <div class="v26_93">
+                <div class="v26_94"></div>
+            </div>
+            <span class="v26_95">Palavra Passe</span>
+            <div class="name"></div>
         </div>
-    </form>
+        <div class="v26_114"><span class="v26_113">Manter-me Conectado
+</span><span class="v26_115">Recuperar Palavra Passe</span>
+            <div class="v26_106"></div>
+        </div>
+    </div>
+    <div class="v52_106">
+        <div class="v52_107"></div>
+        <span class="v52_108">AlugaRecintos</span>
+        <div class="v52_109">
+            <div class="v52_110"></div>
+        </div>
+        <div class="v52_111"><span class="v52_112">Reservas</span><span class="v52_113">Recintos</span><span
+                class="v52_114">Sobre Nós</span><span class="v52_115">Contactos</span><span class="v52_116">Login</span>
+        </div>
+    </div>
 </div>
+</body>
+</html>

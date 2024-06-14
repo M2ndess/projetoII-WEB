@@ -5,15 +5,6 @@
              version="3.0">
   <persistence-unit name="default">
     <class>entity.ClienteEntity</class>
-    <class>entity.EnchidoEntity</class>
-    <class>entity.EntregaEntity</class>
-    <class>entity.FornecedorEntity</class>
-    <class>entity.FuncionarioEntity</class>
-    <class>entity.LoteEntity</class>
-    <class>entity.MateriaPrimaEntity</class>
-    <class>entity.PedidoClienteEntity</class>
-    <class>entity.PedidoItemEntity</class>
-    <class>entity.TransportadoraEntity</class>
     <class>entity.ErrorReportEntity</class>
     <properties>
       <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/projetoII"/>
