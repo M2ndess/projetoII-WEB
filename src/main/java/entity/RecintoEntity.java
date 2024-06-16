@@ -10,7 +10,7 @@ public class RecintoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_recinto", nullable = false)
-    private Integer id;
+    private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_cliente")
@@ -29,7 +29,6 @@ public class RecintoEntity {
     @Column(name = "horario_funcionamento", length = 100)
     private String horarioFuncionamento;
 
-    @Lob
     @Column(name = "info_extra")
     private String infoExtra;
 
@@ -44,7 +43,7 @@ public class RecintoEntity {
     }
 
     // Construtor com todos os parâmetros
-    public RecintoEntity(Integer id, ClienteEntity cliente, TipoRecintoEntity idTipoRecinto, String nome, String morada, String horarioFuncionamento, String infoExtra, String estadoRecinto, BigDecimal precoHora) {
+    public RecintoEntity(Long id, ClienteEntity cliente, TipoRecintoEntity idTipoRecinto, String nome, String morada, String horarioFuncionamento, String infoExtra, String estadoRecinto, BigDecimal precoHora) {
         this.id = id;
         this.cliente = cliente;
         this.idTipoRecinto = idTipoRecinto;
@@ -69,11 +68,11 @@ public class RecintoEntity {
     }
 
     // Getters e Setters
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
