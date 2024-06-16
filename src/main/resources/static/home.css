@@ -39,7 +39,7 @@ body {
 }
 .v0_15 {
   width: 100%;
-  height: 529px;
+  height: 446px;
   background: url("../images/v0_15.png");
   background-repeat: no-repeat;
   background-position: center center;
@@ -71,10 +71,13 @@ body {
   left: 0px;
   font-family: Montserrat;
   font-weight: Bold;
-  font-size: 80px;
+  font-size: 40px; /* Ajustar conforme necessário */
   opacity: 1;
   text-align: center;
+  word-wrap: break-word; /* Permite que o texto quebre em múltiplas linhas */
+  overflow: hidden; /* Esconde qualquer texto que ultrapasse a largura do contêiner */
 }
+
 .v1_45 {
   width: 558px;
   height: 109px;
@@ -84,8 +87,8 @@ body {
   background-size: cover;
   opacity: 1;
   position: absolute;
-  top: 420px;
-  left: 330px;
+  top: 337px;
+  left: 329px;
   overflow: hidden;
 }
 .v0_20 {
@@ -101,10 +104,10 @@ body {
   left: 0px;
   overflow: hidden;
 }
-.v0_21 {
+.v211_226 {
   width: 558px;
   height: 109px;
-  background: url("../images/v0_21.png");
+  background: url("../images/v211_226.png");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -114,240 +117,53 @@ body {
   left: 0px;
   overflow: hidden;
 }
-.v0_22 {
-  width: 558px;
+.v211_227 {
+  width: auto; /* Ajusta a largura automaticamente com base no conteúdo */
   height: 109px;
-  background: rgba(255,255,255,1);
-  opacity: 0.8999999761581421;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  border-top-left-radius: 40px;
-  border-top-right-radius: 40px;
-  border-bottom-left-radius: 40px;
-  border-bottom-right-radius: 40px;
-  box-shadow: 0px 15px 35px rgba(0.0235294122248888, 0.0313725508749485, 0.14509804546833038, 0.20000000298023224);
-  overflow: hidden;
-}
-.v0_23 {
-  width: 278px;
-  color: rgba(6,8,37,1);
-  position: absolute;
-  top: 35px;
-  left: 140px;
-  font-family: Montserrat;
-  font-weight: Bold;
-  font-size: 32px;
-  opacity: 1;
-  text-align: left;
-}
-.name {
-  color: #fff;
-}
-.v1_44 {
-  width: 926px;
-  height: 52px;
-  background: url("../images/v1_44.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 1;
-  position: absolute;
-  top: 284px;
-  left: 161px;
-  overflow: hidden;
-}
-.v3_434 {
-  width: 282px;
-  height: 52px;
-  background: url("../images/v3_434.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 1;
-  position: relative;
-  top: 0px;
-  left: 0px;
-  overflow: hidden;
-}
-.v1_21 {
-  width: 282px;
-  height: 52px;
-  background: url("../images/v1_21.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 0.8999999761581421;
-  position: relative;
-  top: 0px;
-  left: 0px;
-  overflow: hidden;
-}
-.v1_19 {
-  width: 282px;
-  height: 52px;
-  background: url("../images/v1_19.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 1;
-  position: relative;
-  top: 0px;
-  left: 0px;
-  overflow: hidden;
-}
-.v1_20 {
-  width: 282px;
-  height: 52px;
+  padding: 0 20px; /* Adiciona espaçamento interno para o conteúdo não encostar nas bordas */
   background: rgba(6,8,37,1);
+  opacity: 0.9;
+  position: relative; /* Ajuste a posição para relativa */
+  border-radius: 40px; /* Bordas arredondadas */
+  box-shadow: 0px 15px 35px rgba(6, 8, 37, 0.2);
+  display: inline-block; /* Permite que o elemento se ajuste ao tamanho do conteúdo */
+  overflow: visible; /* Permite que o conteúdo exceda o contêiner */
+  box-sizing: border-box; /* Inclui padding e borda no cálculo da largura total */
+  color: white;
+}
+
+.v211_227 a {
+  text-decoration: none; /* Remove o sublinhado padrão dos links */
+  color: white; /* Cor dos links */
+  font-weight: bold; /* Fonte em negrito */
+  display: inline-block; /* Transforma os links em elementos de bloco */
+  padding: 8px 15px; /* Espaçamento interno dos links */
+}
+
+.v211_227 a:hover {
+  color: #f00; /* Cor dos links ao passar o mouse (opcional) */
+}
+
+.v211_228 {
+  width: auto; /* Ajusta a largura automaticamente com base no conteúdo */
+  height: 100%;
+  color: rgba(255, 255, 255, 1);
+  font-family: Montserrat, sans-serif;
+  font-weight: bold;
+  font-size: 40px;
   opacity: 1;
-  position: relative;
-  top: 0px;
-  left: 0px;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-  overflow: hidden;
+  text-align: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px; /* Adiciona espaçamento interno para o conteúdo não encostar nas bordas */
+  box-sizing: border-box; /* Inclui padding e borda no cálculo da largura total */
 }
-.v1_7 {
-  width: 114px;
-  color: rgba(255,255,255,1);
-  position: absolute;
-  top: 17px;
-  left: 24px;
-  font-family: Montserrat;
-  font-weight: Bold;
-  font-size: 19px;
-  opacity: 1;
-  text-align: left;
-}
-.name {
-  color: #fff;
-}
-.v3_436 {
-  width: 282px;
-  height: 52px;
-  background: url("../images/v3_436.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 1;
-  position: absolute;
-  top: 0px;
-  left: 320px;
-  overflow: hidden;
-}
-.v3_437 {
-  width: 282px;
-  height: 52px;
-  background: url("../images/v3_437.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 0.8999999761581421;
-  position: relative;
-  top: 0px;
-  left: 0px;
-  overflow: hidden;
-}
-.v3_438 {
-  width: 282px;
-  height: 52px;
-  background: rgba(6,8,37,1);
-  opacity: 1;
-  position: relative;
-  top: 0px;
-  left: 0px;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-  overflow: hidden;
-}
-.v3_440 {
-  width: 123px;
-  color: rgba(255,255,255,1);
-  position: absolute;
-  top: 17px;
-  left: 24px;
-  font-family: Montserrat;
-  font-weight: Bold;
-  font-size: 19px;
-  opacity: 1;
-  text-align: left;
-}
-.name {
-  color: #fff;
-}
-.v3_443 {
-  width: 282px;
-  height: 52px;
-  background: url("../images/v3_443.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 1;
-  position: absolute;
-  top: 0px;
-  left: 252px;
-  overflow: hidden;
-}
-.v3_444 {
-  width: 282px;
-  height: 52px;
-  background: url("../images/v3_444.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 1;
-  position: relative;
-  top: 0px;
-  left: 0px;
-  overflow: hidden;
-}
-.v3_445 {
-  width: 282px;
-  height: 52px;
-  background: url("../images/v3_445.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 0.8999999761581421;
-  position: relative;
-  top: 0px;
-  left: 0px;
-  overflow: hidden;
-}
-.v3_446 {
-  width: 282px;
-  height: 52px;
-  background: rgba(6,8,37,1);
-  opacity: 1;
-  position: relative;
-  top: 0px;
-  left: 0px;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-  overflow: hidden;
-}
-.v3_448 {
-  width: 114px;
-  color: rgba(255,255,255,1);
-  position: absolute;
-  top: 17px;
-  left: 24px;
-  font-family: Montserrat;
-  font-weight: Bold;
-  font-size: 19px;
-  opacity: 1;
-  text-align: left;
-}
-.name {
-  color: #fff;
-}
+
+
 .v52_162 {
   width: 100%;
   height: 206px;
@@ -452,8 +268,8 @@ body {
   width: 201px;
   color: rgba(0,0,0,1);
   position: absolute;
-  top: 0px;
-  left: 574px;
+  top: 3px;
+  left: 555px;
   font-family: Montserrat;
   font-weight: Bold;
   font-size: 35px;
@@ -471,18 +287,6 @@ body {
   font-size: 35px;
   opacity: 1;
   text-align: left;
-}
-.v22_76 {
-  width: 89px;
-  height: 98px;
-  background: rgba(35,31,32,1);
-  opacity: 1;
-  position: absolute;
-  top: 80px;
-  left: 1058px;
-}
-.name {
-  color: #fff;
 }
 .v22_87 {
   width: 100%;
@@ -522,9 +326,6 @@ body {
   opacity: 1;
   text-align: left;
 }
-.name {
-  color: #fff;
-}
 .v22_86 {
   width: 379px;
   color: rgba(0,0,0,1);
@@ -560,6 +361,45 @@ body {
   font-size: 25px;
   opacity: 1;
   text-align: center;
+}
+.v211_221 {
+  width: 175px;
+  height: 130px;
+  background: url("../images/v211_221.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 1281px;
+  left: 300px;
+  overflow: hidden;
+}
+.v211_223 {
+  width: 150px;
+  height: 124px;
+  background: url("../images/v211_223.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 1289px;
+  left: 801px;
+  overflow: hidden;
+}
+.v211_225 {
+  width: 166px;
+  height: 124px;
+  background: url("../images/v211_225.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 1284px;
+  left: 508px;
+  overflow: hidden;
 }
 .v0_10 {
   width: 100%;
@@ -696,4 +536,126 @@ body {
   font-size: 20px;
   opacity: 1;
   text-align: center;
+}
+.v52_111 {
+  width: 660px;
+  height: 80px;
+  background: url("../images/v52_111.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 37px;
+  left: 1051px;
+  overflow: hidden;
+}
+
+.v52_111 a {
+  text-decoration: none; /* Remove o sublinhado padrão dos links */
+  color: #333; /* Cor dos links */
+  font-weight: bold; /* Fonte em negrito */
+  display: inline-block; /* Transforma os links em elementos de bloco */
+  padding: 8px 15px; /* Espaçamento interno dos links */
+}
+
+.v52_111 a:hover {
+  color: #f00; /* Cor dos links ao passar o mouse (opcional) */
+}
+
+.v52_112 {
+  width: 95px;
+  color: rgba(0,0,0,1);
+  position: relative;
+  top: 0px;
+  left: 0px;
+  font-family: Montserrat;
+  font-weight: Bold;
+  font-size: 20px;
+  opacity: 1;
+  text-align: center;
+
+}
+.v52_113 {
+  width: 92px;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 0px;
+  left: 138px;
+  font-family: Montserrat;
+  font-weight: Bold;
+  font-size: 20px;
+  opacity: 1;
+  text-align: center;
+}
+.v52_114 {
+  width: 150px;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 0px;
+  left: 273px;
+  font-family: Montserrat;
+  font-weight: Bold;
+  font-size: 20px;
+  opacity: 1;
+  text-align: center;
+}
+.v52_115 {
+  width: 107px;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 0px;
+  left: 423px;
+  font-family: Montserrat;
+  font-weight: Bold;
+  font-size: 20px;
+  opacity: 1;
+  text-align: center;
+}
+.v52_116 {
+  width: 59px;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 0px;
+  left: 573px;
+  font-family: Montserrat;
+  font-weight: Bold;
+  font-size: 20px;
+  opacity: 1;
+  text-align: center;
+}
+.v52_108 {
+  width: 423px;
+  color: rgba(6,8,37,1);
+  position: absolute;
+  top: 20px;
+  left: 9px;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.20000000298023224);
+  font-family: Montserrat;
+  font-weight: Black;
+  font-size: 45px;
+  opacity: 1;
+  text-align: center;
+}
+.v52_109 {
+  width: 29px;
+  height: 39px;
+  background: url("../images/v52_109.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 33px;
+  left: 1723px;
+  overflow: hidden;
+}
+.v52_110 {
+  width: 29px;
+  height: 39px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: relative;
+  top: 0px;
+  left: 0px;
 }
