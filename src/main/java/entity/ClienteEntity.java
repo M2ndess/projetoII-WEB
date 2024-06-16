@@ -3,43 +3,55 @@ package entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "cliente", schema = "public", catalog = "proj2")
+@Table(name = "cliente")
 public class ClienteEntity {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_cliente")
-    private int idCliente;
-    @Basic
-    @Column(name = "nome")
+    private Integer idCliente;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_tipo_cliente")
+    private TipoClienteEntity tipoCliente;
+
+    @Column(name = "nome", nullable = false, length = 100)
     private String nome;
-    @Basic
-    @Column(name = "contacto")
-    private String contacto;
-    @Basic
-    @Column(name = "morada")
-    private String morada;
-    @Basic
-    @Column(name = "email")
+
+    @Column(name = "telefone", length = 20)
+    private String telefone;
+
+    @Column(name = "email", length = 100)
     private String email;
-    @Basic
-    @Column(name = "nif")
+
+    @Column(name = "nif", length = 20)
     private String nif;
-    @Basic
-    @Column(name = "username")
+
+    @Column(name = "username", length = 20)
     private String username;
-    @Basic
-    @Column(name = "password")
+
+    @Column(name = "password", length = 50)
     private String password;
-    @Basic
-    @Column(name = "estado_conta")
+
+    @Column(name = "estado_conta", length = 20)
     private String estadoConta;
 
-    public int getIdCliente() {
+    // Getters e Setters
+
+    public Integer getIdCliente() {
         return idCliente;
     }
 
-    public void setIdCliente(int idCliente) {
+    public void setIdCliente(Integer idCliente) {
         this.idCliente = idCliente;
+    }
+
+    public TipoClienteEntity getTipoCliente() {
+        return tipoCliente;
+    }
+
+    public void setTipoCliente(TipoClienteEntity tipoCliente) {
+        this.tipoCliente = tipoCliente;
     }
 
     public String getNome() {
@@ -50,20 +62,12 @@ public class ClienteEntity {
         this.nome = nome;
     }
 
-    public String getContacto() {
-        return contacto;
+    public String getTelefone() {
+        return telefone;
     }
 
-    public void setContacto(String contacto) {
-        this.contacto = contacto;
-    }
-
-    public String getMorada() {
-        return morada;
-    }
-
-    public void setMorada(String morada) {
-        this.morada = morada;
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 
     public String getEmail() {
@@ -104,39 +108,5 @@ public class ClienteEntity {
 
     public void setEstadoConta(String estadoConta) {
         this.estadoConta = estadoConta;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        ClienteEntity that = (ClienteEntity) o;
-
-        if (idCliente != that.idCliente) return false;
-        if (nome != null ? !nome.equals(that.nome) : that.nome != null) return false;
-        if (contacto != null ? !contacto.equals(that.contacto) : that.contacto != null) return false;
-        if (morada != null ? !morada.equals(that.morada) : that.morada != null) return false;
-        if (email != null ? !email.equals(that.email) : that.email != null) return false;
-        if (nif != null ? !nif.equals(that.nif) : that.nif != null) return false;
-        if (username != null ? !username.equals(that.username) : that.username != null) return false;
-        if (password != null ? !password.equals(that.password) : that.password != null) return false;
-        if (estadoConta != null ? !estadoConta.equals(that.estadoConta) : that.estadoConta != null) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = idCliente;
-        result = 31 * result + (nome != null ? nome.hashCode() : 0);
-        result = 31 * result + (contacto != null ? contacto.hashCode() : 0);
-        result = 31 * result + (morada != null ? morada.hashCode() : 0);
-        result = 31 * result + (email != null ? email.hashCode() : 0);
-        result = 31 * result + (nif != null ? nif.hashCode() : 0);
-        result = 31 * result + (username != null ? username.hashCode() : 0);
-        result = 31 * result + (password != null ? password.hashCode() : 0);
-        result = 31 * result + (estadoConta != null ? estadoConta.hashCode() : 0);
-        return result;
     }
 }
