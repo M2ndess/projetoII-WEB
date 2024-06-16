@@ -3,7 +3,8 @@
 <head>
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"/>
     <link href="/login.css" rel="stylesheet"/>
-    <title>Document</title></head>
+    <title>Login</title>
+</head>
 <body>
 <div class="v26_5">
     <div class="v26_6"></div>
@@ -11,38 +12,48 @@
     <div class="v26_129">
         <div class="v26_130">
             <div class="v26_131"></div>
-            <span class="v26_132">Não tem conta e gostaria de aderir ao nosso serviço?</span></div>
+            <span class="v26_132">Não tem conta e gostaria de aderir ao nosso serviço?</span>
+        </div>
         <div class="v26_133">
             <div class="v26_134"></div>
-            <span class="v26_135">Saiba Mais</span></div>
+            <span class="v26_135">Saiba Mais</span>
+        </div>
     </div>
     <div class="v52_163">
-        <div class="v26_116">
-            <div class="v26_117">
-                <div class="v26_118">
-                    <div class="v26_119"></div>
-                    <span class="v26_120">Entrar</span></div>
+        <form action="/login" method="post">
+            <div class="v26_116">
+                <div class="v26_117">
+                    <div class="v26_118">
+                        <div class="v26_119">
+                            <button type="submit" class="v26_120">Entrar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="name"></div>
             </div>
-            <div class="name"></div>
-        </div>
-        <div class="v26_85">
-            <div class="v26_86">
-                <div class="v26_87"></div>
+            <div class="v26_85">
+                <div class="v26_86">
+                    <div class="v26_87">
+                        <span class="v26_88">
+                            <input type="text" name="username" class="v26_89" placeholder="Nome de Utilizador">
+                        </span>
+                    </div>
+                </div>
             </div>
-            <span class="v26_88">Utilizador</span>
-            <div class="name"></div>
-        </div>
-        <div class="v26_92">
-            <div class="v26_93">
-                <div class="v26_94"></div>
+            <div class="v26_92">
+                <div class="v26_93">
+                    <div class="v26_94">
+                        <input type="password" name="password" class="v26_95" placeholder="Palavra Passe">
+                    </div>
+                </div>
             </div>
-            <span class="v26_95">Palavra Passe</span>
-            <div class="name"></div>
-        </div>
-        <div class="v26_114"><span class="v26_113">Manter-me Conectado
-</span><span class="v26_115">Recuperar Palavra Passe</span>
-            <div class="v26_106"></div>
-        </div>
+            <div class="v26_114">
+                <span class="v26_113">
+                    <input type="checkbox" name="rememberMe"/> Manter-me Conectado
+                </span>
+                <span class="v26_115">Recuperar Palavra Passe</span>
+            </div>
+        </form>
     </div>
     <div class="v52_106">
         <div class="v52_107"></div>
@@ -50,8 +61,12 @@
         <div class="v52_109">
             <div class="v52_110"></div>
         </div>
-        <div class="v52_111"><span class="v52_112">Reservas</span><span class="v52_113">Recintos</span><span
-                class="v52_114">Sobre Nós</span><span class="v52_115">Contactos</span><span class="v52_116">Login</span>
+        <div class="v52_111">
+            <span class="v52_112"><a href="/reservas">Reservas</a></span>
+            <span class="v52_113"><a href="/recintos">Recintos</a></span>
+            <span class="v52_114"><a href="/sobre-nos">Sobre Nós</a></span>
+            <span class="v52_115"><a href="/contactos">Contactos</a></span>
+            <span class="v52_116"><a href="/login">Login</a></span>
         </div>
     </div>
 </div>
