@@ -94,7 +94,7 @@ body {
   text-align: center;
 }
 .v41_161 {
-  width: 771px;
+  width: 100%;
   color: rgba(6,8,37,1);
   position: absolute;
   top: 43px;
@@ -106,7 +106,7 @@ body {
   text-align: left;
 }
 .v41_162 {
-  width: 308px;
+  width: 100%;
   color: rgba(6,8,37,1);
   position: absolute;
   top: 122px;
@@ -118,7 +118,7 @@ body {
   text-align: left;
 }
 .v41_163 {
-  width: 326px;
+  width: 100%;
   color: rgba(6,8,37,1);
   position: absolute;
   top: 185px;
@@ -1028,7 +1028,7 @@ body {
 
 .recinto-item {
   width: 80%; /* Adjust as needed */
-  margin-bottom: 20px; /* Espaço entre cada recinto */
+  margin-top: 20px; /* Espaço entre cada recinto */
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
