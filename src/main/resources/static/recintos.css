@@ -6,7 +6,7 @@ body {
 }
 .v41_70 {
   width: 100%;
-  height: 1720px;
+  height: 100%;
   background: rgba(255,255,255,1);
   opacity: 1;
   position: absolute;
@@ -37,19 +37,6 @@ body {
   top: 98px;
   left: 2px;
 }
-.v41_156 {
-  width: 100%;
-  height: 323px;
-  background: url("../images/v41_156.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 1;
-  position: absolute;
-  top: 270px;
-  left: 36px;
-  overflow: hidden;
-}
 .v41_157 {
   width: 100%;
   height: 323px;
@@ -58,6 +45,7 @@ body {
   position: absolute;
   top: 0px;
   left: 0px;
+  opacity: 0.7;
 }
 .v41_158 {
   width: 346px;
@@ -557,7 +545,7 @@ body {
   background-size: cover;
   opacity: 1;
   position: absolute;
-  top: 1018px;
+  top: 2000px;
   left: 0px;
   overflow: hidden;
 }
@@ -1027,12 +1015,35 @@ body {
 }
 
 .recinto-item {
-  width: 80%; /* Adjust as needed */
-  margin-top: 20px; /* Espaço entre cada recinto */
+  width: 100%; /* Ajuste conforme necessário */
+  margin-top: 300px; /* Espaço entre cada recinto */
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  display: block; /* Ensure each item is a block element */
-  clear: both; /* Prevent floating elements from affecting layout */
+  display: block; /* Garantir que cada item seja um elemento de bloco */
+  position: relative; /* Necessário para o z-index funcionar */
+  z-index: 10; /* Valor alto para garantir que sobreponha outros elementos */
 }
+.v41_156 {
+  width: 100%;
+  height: auto;
+  background: url("../images/v41_156.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: -100px;
+  left: 36px;
+  overflow: hidden;
+}
+.recintos-container {
+  max-height: 1000px; /* Ajuste conforme necessário */
+  overflow-y: auto; /* Scroll vertical */
+  overflow-x: hidden; /* Esconder scroll horizontal */
+  padding-right: 10px; /* Espaço para barra de rolagem */
+  margin-bottom: 20px; /* Espaço entre recintos e outros elementos */
+  background-color: transparent; /* Ajuste conforme necessário */
+}
+
 
