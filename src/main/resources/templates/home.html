@@ -51,7 +51,12 @@
             <span class="v52_113"><a href="/recintos">Recintos</a></span>
             <span class="v52_114"><a href="/sobre-nos">Sobre Nós</a></span>
             <span class="v52_115"><a href="/contactos">Contactos</a></span>
-            <span class="v52_116"><a href="/login">Login</a></span>
+            <span th:if="${session.user == null}">
+                <a class="v52_116" href="/login">Login</a>
+            </span>
+            <span th:if="${session.user != null}">
+                <a class="v52_116" href="/logout">Logout</a>
+            </span>
         </div>
     </div>
 </div>
