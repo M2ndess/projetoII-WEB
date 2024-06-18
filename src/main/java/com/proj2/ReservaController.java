@@ -40,6 +40,8 @@ public class ReservaController {
         if (recintoOptional.isPresent()) {
             RecintoEntity recinto = recintoOptional.get();
             model.addAttribute("recinto", recinto);
+            BigDecimal precoHora = recinto.getPrecoHora();
+            model.addAttribute("preco_hora", precoHora);
         } else {
             return "error"; // Example: return "error" if recintoId is not found
         }

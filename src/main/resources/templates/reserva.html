@@ -6,6 +6,7 @@
     <title>Document</title>
     <script type="text/javascript">
         function confirmarReserva() {
+            var precoHora = parseFloat(document.getElementById('precoHoraInput').value.trim());
             var dataInput = document.getElementById('data');
             var horaInicioInput = document.getElementById('hora_inicio');
             var horaFimInput = document.getElementById('hora_fim');
@@ -28,16 +29,30 @@
                 return false;
             }
 
+            // Calcular o preço total
+            var duracaoEmHoras = (horaFim - horaInicio) / (1000 * 60 * 60); // Converter para horas
+            var precoTotal = precoHora * duracaoEmHoras;
+
+            // Console logs para depuração
+            console.log('Data selecionada:', dataSelecionada);
+            console.log('Hora de início:', horaInicio);
+            console.log('Hora de fim:', horaFim);
+            console.log('Preço por hora:', precoHora);
+            console.log('Duração em horas:', duracaoEmHoras);
+            console.log('Preço total:', precoTotal);
+
             // Confirmar reserva com o valor total
-            var precoTotal = parseFloat('${precoTotal}');
-            return confirm('Tem a certeza que deseja confirmar a reserva no valor de $' + precoTotal.toFixed(2) + '?');
+            return confirm('Tem a certeza que deseja confirmar a reserva no valor de ' + precoTotal.toFixed(2) + '€?');
         }
     </script>
+
+
 </head>
 <body>
 <div class="v26_136">
     <form action="/reserva" method="post" onsubmit="return confirmarReserva()">
         <input type="hidden" name="id" th:value="${recinto.id}">
+        <input type="hidden" id="precoHoraInput" name="preco_hora" th:value="${preco_hora}">
         <div class="v26_137"></div>
         <div class="v26_138"></div>
         <div class="v52_164">
@@ -45,7 +60,7 @@
                 <div class="v26_147">
                     <div class="v26_148">
                         <div class="v26_149">
-                            <button type="submit" class="v26_150">Registar</button>
+                            <button type="submit" class="v26_150">Reservar</button>
                         </div>
                     </div>
                 </div>
@@ -103,7 +118,7 @@
                     <div class="name"></div>
                 </div>
             </div>
-            <span class="v26_168">Registar</span>
+            <span class="v26_168">Reservar</span>
         </div>
     </form>
     <span class="v52_108">AlugaRecintos</span>
