@@ -4,6 +4,35 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"/>
     <link href="/reserva.css" rel="stylesheet"/>
     <title>Document</title>
+    <script type="text/javascript">
+        function confirmarReserva() {
+            var dataInput = document.getElementById('data');
+            var horaInicioInput = document.getElementById('hora_inicio');
+            var horaFimInput = document.getElementById('hora_fim');
+
+            // Validar data futura
+            var dataSelecionada = new Date(dataInput.value);
+            var hoje = new Date();
+            hoje.setHours(0, 0, 0, 0); // Zerando horas para comparação de datas
+            if (dataSelecionada < hoje) {
+                alert('Por favor, selecione uma data futura.');
+                return false;
+            }
+
+            // Validar horas de início e fim
+            var horaInicio = horaInicioInput.valueAsDate;
+            var horaFim = horaFimInput.valueAsDate;
+
+            if (!horaInicio || !horaFim || horaInicio >= horaFim) {
+                alert('Por favor, verifique o horário de início e fim da reserva.');
+                return false;
+            }
+
+            // Confirmar reserva com o valor total
+            var precoTotal = parseFloat('${precoTotal}');
+            return confirm('Tem a certeza que deseja confirmar a reserva no valor de $' + precoTotal.toFixed(2) + '?');
+        }
+    </script>
 </head>
 <body>
 <div class="v26_136">
@@ -33,7 +62,7 @@
                 <div class="v26_214">
                     <div class="v26_158">
                         <div class="v26_159">
-                            <input type="date" name="data" class="v26_160" placeholder="Data">
+                            <input type="date" id="data" name="data" class="v26_160" placeholder="Data">
                         </div>
                     </div>
                 </div>
@@ -44,7 +73,7 @@
                 <div class="v26_216">
                     <div class="v26_217">
                         <div class="v26_218">
-                            <input type="time" name="hora_inicio" class="v26_219" step="1800">
+                            <input type="time" id="hora_inicio" name="hora_inicio" class="v26_219" step="1800">
                         </div>
                     </div>
                 </div>
@@ -54,7 +83,7 @@
                 <div class="v209_181">
                     <div class="v209_182">
                         <div class="v209_183">
-                            <input type="time" name="hora_fim" class="v209_184" step="1800">
+                            <input type="time" id="hora_fim" name="hora_fim" class="v209_184" step="1800">
                         </div>
                     </div>
                     <div class="name"></div>
@@ -76,57 +105,22 @@
             </div>
             <span class="v26_168">Registar</span>
         </div>
-</form>
-
-<span class="v52_108">AlugaRecintos</span>
-<div class="v52_117">
-    <div class="v52_111">
-        <span class="v52_112"><a href="/reservas">Reservas</a></span>
-        <span class="v52_113"><a href="/recintos">Recintos</a></span>
-        <span class="v52_114"><a href="/sobre-nos">Sobre Nós</a></span>
-        <span class="v52_115"><a href="/contactos">Contactos</a></span>
-        <span th:if="${session.user == null}">
+    </form>
+    <span class="v52_108">AlugaRecintos</span>
+    <div class="v52_117">
+        <div class="v52_111">
+            <span class="v52_112"><a href="/reservas">Reservas</a></span>
+            <span class="v52_113"><a href="/recintos">Recintos</a></span>
+            <span class="v52_114"><a href="/sobre-nos">Sobre Nós</a></span>
+            <span class="v52_115"><a href="/contactos">Contactos</a></span>
+            <span th:if="${session.user == null}">
                 <a class="v52_116" href="/login">Login</a>
             </span>
-        <span th:if="${session.user != null}">
+            <span th:if="${session.user != null}">
                 <a class="v52_116" href="/logout">Logout</a>
             </span>
+        </div>
     </div>
-</div>
 </div>
 </body>
 </html>
-<script>
-    // Captura o formulário ao submeter
-    document.querySelector('form').addEventListener('submit', function(event) {
-        // Obtém os valores de hora de início e hora de fim
-        var horaInicio = document.getElementById('hora_inicio').value;
-        var horaFim = document.getElementById('hora_fim').value;
-
-        // Converte para objetos Date para comparação
-        var dtInicio = new Date('1970-01-01T' + horaInicio + 'Z');
-        var dtFim = new Date('1970-01-01T' + horaFim + 'Z');
-
-        // Verifica se hora_fim é posterior a hora_inicio
-        if (dtFim <= dtInicio) {
-            // Mostra uma mensagem de erro
-            alert('A hora de fim deve ser posterior à hora de início.');
-            // Impede o envio do formulário
-            event.preventDefault();
-        }
-    });
-</script>
-
-<!-- JavaScript para confirmar a reserva -->
-<script th:inline="javascript">
-    function confirmarReserva() {
-        var precoTotal = [[${precoTotal}]];
-        var confirmacao = confirm('Tem a Certeza que quer confirmar a reserva no valor de ' + precoTotal + ' €?');
-
-        if (confirmacao) {
-            return true; // Continua com o envio do formulário
-        } else {
-            return false; // Cancela o envio do formulário
-        }
-    }
-</script>

@@ -67,7 +67,7 @@ public class ReservaController {
         Optional<RecintoEntity> recintoOptional = recintosRepository.findById(recintoId);
 
         if (recintoOptional.isEmpty()) {
-            return "error"; // Example: return "error" if recintoId is not found
+            return "error"; // Exemplo: retornar "error" se o recintoId não for encontrado
         }
 
         RecintoEntity recinto = recintoOptional.get();
@@ -89,10 +89,10 @@ public class ReservaController {
         pagamento.setMetodoPagamento(metodoPagamento);
 
         // Salvar o pagamento e obter o ID
-        pagamentoService.savePagamento(pagamento);
-        Long idPagamento = pagamento.getId();
+        PagamentoEntity pagamentoSalvo = pagamentoService.savePagamento(pagamento);
+        Long idPagamento = pagamentoSalvo.getId();
 
-        // Adicionar ao model para a página de confirmação
+        // Adicionar ao modelo para a página de confirmação
         model.addAttribute("recinto", recinto);
         model.addAttribute("data", instantData);
         model.addAttribute("horaInicio", instantHoraInicio);
@@ -106,7 +106,7 @@ public class ReservaController {
         reserva.setHoraInicio(instantHoraInicio);
         reserva.setHoraFim(instantHoraFim);
         reserva.setIdCliente(idCliente);
-        reserva.setIdPagamento(idPagamento); // Configura o ID do pagamento na reserva
+        reserva.setIdPagamento(idPagamento); // Configurar o ID do pagamento na reserva
 
         reserva.setEstadoReserva("Confirmada");
 
@@ -115,7 +115,7 @@ public class ReservaController {
         // Adicionar atributo de sucesso para exibir o pop-up
         model.addAttribute("reservaRegistada", true);
 
-        // Retornar para a página reserva
-        return "/reservas";
+        // Retornar para a página de reservas
+        return "/reservas"; // Supondo que exista uma página reservas.html para redirecionar após o registro da reserva
     }
 }
