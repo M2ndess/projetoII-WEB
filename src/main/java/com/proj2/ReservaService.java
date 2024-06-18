@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
+import java.util.List;
 
 @Service
 public class ReservaService {
@@ -17,15 +18,18 @@ public class ReservaService {
         this.reservaRepository = reservaRepository;
     }
 
+    public List<ReservaEntity> findByIdCliente(Long idCliente) {
+        // Busca as reservas do cliente pelo idCliente
+        List<ReservaEntity> reservas = reservaRepository.findByIdCliente(idCliente);
+        return reservas;
+    }
+
     public ReservaEntity findReservaById(Long id) {
         Optional<ReservaEntity> optionalReserva = reservaRepository.findById(id);
-        // Verifica se a reserva foi encontrada
         if (optionalReserva.isPresent()) {
-            return optionalReserva.get(); // Retorna a reserva encontrada
+            return optionalReserva.get();
         } else {
-            // Você pode optar por lançar uma exceção ou retornar null, dependendo da lógica do seu aplicativo
             throw new RuntimeException("Reserva não encontrada para o ID: " + id);
-            // ou return null; // Retorna null se a reserva não for encontrada
         }
     }
 

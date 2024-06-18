@@ -118,6 +118,6 @@ public class ReservaController {
         model.addAttribute("reservaRegistada", true);
 
         // Retornar para a página de reservas
-        return "/reservas"; // Supondo que exista uma página reservas.html para redirecionar após o registro da reserva
+        return "/reservas";
     }
 }

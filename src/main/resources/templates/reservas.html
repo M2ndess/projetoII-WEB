@@ -3,46 +3,46 @@
 <head>
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"/>
     <link href="/reservas.css" rel="stylesheet"/>
-    <title>Document</title></head>
+    <title>Suas Reservas</title>
+</head>
 <body>
-<div class="v26_244">
-    <div class="v26_245"></div>
-    <div class="v26_443"></div>
-    <div class="v26_434">
-        <div class="v26_435">
-            <div class="v26_436"></div>
-            <span class="v26_437">Deseja Procurar e Alugar Mais Recintos Desportivos?</span></div>
-        <div class="v26_438">
-            <div class="v26_439"></div>
-            <span class="v26_440">Saiba Mais</span></div>
-    </div>
-    <div class="v41_155">
-        <div class="v26_341"></div>
-        <div class="v26_345">
-            <div class="v26_344"></div>
-            <span class="v26_343">Cancelar Reserva</span></div>
-        <span class="v26_342">Campo Futebol de Perre</span><span class="v26_346">Dia: 12/12/2024</span><span
-            class="v66_204">Hora: 15h</span><span class="v26_348">Duração: 1 Hora</span><span
-            class="v26_349">Total: 25€</span>
-        <div class="v26_246"></div>
-    </div>
-    <div class="v26_305">
-        <div class="v26_306"><span class="v26_307">Procure</span></div>
-        <div class="name"></div>
-        <span class="v26_309">Procure campos e recintos desportivos perto de si.</span><span class="v26_310">Reserve online e receba a confirmação instantânea por e-mail.</span><span
-            class="v26_311">Entre em campo e jogue.</span>
-        <div class="v26_441"></div>
-        <div class="name"></div>
-        <span class="v26_303">Jogue</span><span class="v26_302">Reserve</span></div>
-    <span class="v26_289">As Suas Reservas</span>
-    <div class="v52_128">
-        <div class="v52_129"></div>
-        <span class="v52_130">AlugaRecintos</span>
-        <div class="v52_131">
-            <div class="v52_132"></div>
+<div class="v41_70">
+    <!-- Barra superior -->
+    <div class="v41_71"></div>
+    <div class="v41_72"></div>
+
+    <!-- Conteúdo principal -->
+    <div class="v41_156">
+        <!-- Contêiner para os recintos com scroll -->
+        <div class="recintos-container">
+            <!-- Loop sobre os recintos -->
+            <div th:each="reservas : ${reservas}" class="recinto-item">
+                <div class="v41_157"></div>
+                <span class="v41_161">Data: <span th:text="${#temporals.format(reservas.dataReserva, 'dd/MM/yyyy')}"></span></span>
+                <span class="v41_162">Hora Inicio: <span th:text="${#temporals.format(reservas.horaInicio, 'HH:mm')}"></span></span>
+                <span class="v41_163">Hora Fim: <span th:text="${#temporals.format(reservas.horaFim, 'HH:mm')}"></span></span>
+                <div class="v41_165"></div>
+            </div>
         </div>
-        <div class="v52_133"><span class="v52_134">Reservas</span><span class="v52_135">Recintos</span><span
-                class="v52_136">Sobre Nós</span><span class="v52_137">Contactos</span><span class="v52_138">Login</span>
+    </div>
+
+    <div class="v52_106">
+        <div class="v52_107"></div>
+        <span class="v52_108">AlugaRecintos</span>
+        <div class="v52_109">
+            <div class="v52_110"></div>
+        </div>
+        <div class="v52_111">
+            <span class="v52_112"><a href="/reservas">Reservas</a></span>
+            <span class="v52_113"><a href="/recintos">Recintos</a></span>
+            <span class="v52_114"><a href="/sobre-nos">Sobre Nós</a></span>
+            <span class="v52_115"><a href="/contactos">Contactos</a></span>
+            <span th:if="${session.user == null}">
+                <a class="v52_116" href="/login">Login</a>
+            </span>
+            <span th:if="${session.user != null}">
+                <a class="v52_116" href="/logout">Logout</a>
+            </span>
         </div>
     </div>
 </div>
