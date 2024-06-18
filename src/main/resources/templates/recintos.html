@@ -19,8 +19,8 @@
             <div th:each="recinto : ${recintos}" class="recinto-item">
                 <div class="v41_157"></div>
                 <div class="v41_158">
-                    <div class="v41_159"></div>
-                    <span class="v41_160">Reservar</span>
+                    <a th:href="@{/reserva(id=${recinto.id})}" class="v41_159"></a>
+                    <a th:href="@{/reserva(id=${recinto.id})}" class="v41_160">Reservar</a>
                 </div>
                 <span class="v41_161">Nome: <span th:text="${recinto.nome}"></span></span>
                 <span class="v41_162">Morada: <span th:text="${recinto.morada}"></span></span>
@@ -46,7 +46,8 @@
             </span>
             <span th:if="${session.user != null}">
                 <a class="v52_116" href="/logout">Logout</a>
-            </span>        </div>
+            </span>
+        </div>
     </div>
 </div>
 </body>

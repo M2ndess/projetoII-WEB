@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"/>
+    <link href="/reserva.css" rel="stylesheet"/>
+    <title>Document</title>
+</head>
+<body>
+<div class="v26_136">
+    <form action="/reserva" method="post" onsubmit="return confirmarReserva()">
+        <input type="hidden" name="id" th:value="${recinto.id}">
+        <div class="v26_137"></div>
+        <div class="v26_138"></div>
+        <div class="v52_164">
+            <div class="v26_146">
+                <div class="v26_147">
+                    <div class="v26_148">
+                        <div class="v26_149">
+                            <button type="submit" class="v26_150">Registar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="v26_152">
+                <div class="v26_153">
+                    <div class="v26_154">
+                        <span class="v26_155" th:text="${recinto != null ? recinto.nome : 'Nome do Recinto não disponível'}">Nome do Recinto</span>
+                    </div>
+                </div>
+                <div class="name"></div>
+            </div>
+            <div class="v26_157">
+                <div class="v26_214">
+                    <div class="v26_158">
+                        <div class="v26_159">
+                            <input type="date" name="data" class="v26_160" placeholder="Data">
+                        </div>
+                    </div>
+                </div>
+                <div class="name"></div>
+                <div class="name"></div>
+            </div>
+            <div class="v26_215">
+                <div class="v26_216">
+                    <div class="v26_217">
+                        <div class="v26_218">
+                            <input type="time" name="hora_inicio" class="v26_219" step="1800">
+                        </div>
+                    </div>
+                </div>
+                <div class="name"></div>
+            </div>
+            <div class="v209_180">
+                <div class="v209_181">
+                    <div class="v209_182">
+                        <div class="v209_183">
+                            <input type="time" name="hora_fim" class="v209_184" step="1800">
+                        </div>
+                    </div>
+                    <div class="name"></div>
+                </div>
+            </div>
+            <div class="v209_190">
+                <div class="v209_191">
+                    <div class="v209_192">
+                        <div class="v209_193">
+                            <select name="metodo_pagamento" class="v26_155">
+                                <option value="MbWay">MbWay</option>
+                                <option value="Referência">Referência</option>
+                                <option value="Paypal">Paypal</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="name"></div>
+                </div>
+            </div>
+            <span class="v26_168">Registar</span>
+        </div>
+</form>
+
+<span class="v52_108">AlugaRecintos</span>
+<div class="v52_117">
+    <div class="v52_111">
+        <span class="v52_112"><a href="/reservas">Reservas</a></span>
+        <span class="v52_113"><a href="/recintos">Recintos</a></span>
+        <span class="v52_114"><a href="/sobre-nos">Sobre Nós</a></span>
+        <span class="v52_115"><a href="/contactos">Contactos</a></span>
+        <span th:if="${session.user == null}">
+                <a class="v52_116" href="/login">Login</a>
+            </span>
+        <span th:if="${session.user != null}">
+                <a class="v52_116" href="/logout">Logout</a>
+            </span>
+    </div>
+</div>
+</div>
+</body>
+</html>
+<script>
+    // Captura o formulário ao submeter
+    document.querySelector('form').addEventListener('submit', function(event) {
+        // Obtém os valores de hora de início e hora de fim
+        var horaInicio = document.getElementById('hora_inicio').value;
+        var horaFim = document.getElementById('hora_fim').value;
+
+        // Converte para objetos Date para comparação
+        var dtInicio = new Date('1970-01-01T' + horaInicio + 'Z');
+        var dtFim = new Date('1970-01-01T' + horaFim + 'Z');
+
+        // Verifica se hora_fim é posterior a hora_inicio
+        if (dtFim <= dtInicio) {
+            // Mostra uma mensagem de erro
+            alert('A hora de fim deve ser posterior à hora de início.');
+            // Impede o envio do formulário
+            event.preventDefault();
+        }
+    });
+</script>
+
+<!-- JavaScript para confirmar a reserva -->
+<script th:inline="javascript">
+    function confirmarReserva() {
+        var precoTotal = [[${precoTotal}]];
+        var confirmacao = confirm('Tem a Certeza que quer confirmar a reserva no valor de ' + precoTotal + ' €?');
+
+        if (confirmacao) {
+            return true; // Continua com o envio do formulário
+        } else {
+            return false; // Cancela o envio do formulário
+        }
+    }
+</script>

@@ -40,6 +40,7 @@ public class LoginController {
             // Login bem-sucedido
             HttpSession session = request.getSession();
             session.setAttribute("user", username);
+            session.setAttribute("idCliente", cliente.getIdCliente());
             return "redirect:/home"; // Redireciona para a página após o login
         } else {
             // Login falhou

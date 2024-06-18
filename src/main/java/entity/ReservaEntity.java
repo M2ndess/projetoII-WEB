@@ -1,9 +1,7 @@
 package entity;
 
-import jakarta.persistence.*;
-
-import java.math.BigDecimal;
 import java.time.Instant;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "reserva")
@@ -13,17 +11,14 @@ public class ReservaEntity {
     @Column(name = "id_reserva", nullable = false)
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_cliente")
-    private ClienteEntity cliente;
+    @Column(name = "id_cliente")
+    private Integer idCliente;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_recinto")
-    private RecintoEntity recinto;
+    @Column(name = "id_recinto")
+    private Integer idRecinto;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_pagamento")
-    private PagamentoEntity pagamento;
+    @Column(name = "id_pagamento")
+    private Long idPagamento; // Alterado para Long para aceitar valores do tipo Long
 
     @Column(name = "hora_inicio")
     private Instant horaInicio;
@@ -41,28 +36,7 @@ public class ReservaEntity {
         // Empty constructor required by JPA
     }
 
-    // Construtor com todos os parâmetros
-    public ReservaEntity(Integer id, ClienteEntity cliente, RecintoEntity recinto, PagamentoEntity pagamento, Instant horaInicio, Instant horaFim, String estadoReserva, Instant dataReserva) {
-        this.id = id;
-        this.cliente = cliente;
-        this.recinto = recinto;
-        this.pagamento = pagamento;
-        this.horaInicio = horaInicio;
-        this.horaFim = horaFim;
-        this.estadoReserva = estadoReserva;
-        this.dataReserva = dataReserva;
-    }
-
-    // Construtor sem o ID da reserva (para novos objetos)
-    public ReservaEntity(ClienteEntity cliente, RecintoEntity recinto, PagamentoEntity pagamento, Instant horaInicio, Instant horaFim, String estadoReserva, Instant dataReserva) {
-        this.cliente = cliente;
-        this.recinto = recinto;
-        this.pagamento = pagamento;
-        this.horaInicio = horaInicio;
-        this.horaFim = horaFim;
-        this.estadoReserva = estadoReserva;
-        this.dataReserva = dataReserva;
-    }
+    // Getters and setters omitted for brevity
 
     public Integer getId() {
         return id;
@@ -72,28 +46,28 @@ public class ReservaEntity {
         this.id = id;
     }
 
-    public ClienteEntity getCliente() {
-        return cliente;
+    public Integer getIdCliente() {
+        return idCliente;
     }
 
-    public void setCliente(ClienteEntity cliente) {
-        this.cliente = cliente;
+    public void setIdCliente(Integer idCliente) {
+        this.idCliente = idCliente;
     }
 
-    public RecintoEntity getRecinto() {
-        return recinto;
+    public Integer getIdRecinto() {
+        return idRecinto;
     }
 
-    public void setRecinto(RecintoEntity recinto) {
-        this.recinto = recinto;
+    public void setIdRecinto(Integer idRecinto) {
+        this.idRecinto = idRecinto;
     }
 
-    public PagamentoEntity getPagamento() {
-        return pagamento;
+    public Long getIdPagamento() {
+        return idPagamento;
     }
 
-    public void setPagamento(PagamentoEntity pagamento) {
-        this.pagamento = pagamento;
+    public void setIdPagamento(Long idPagamento) {
+        this.idPagamento = idPagamento;
     }
 
     public Instant getHoraInicio() {

@@ -1,7 +1,6 @@
 package entity;
 
 import jakarta.persistence.*;
-
 import java.math.BigDecimal;
 
 @Entity
@@ -10,7 +9,7 @@ public class PagamentoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_pagamento", nullable = false)
-    private Integer id;
+    private Long id;
 
     @Column(name = "metodo_pagamento", nullable = false, length = 100)
     private String metodoPagamento;
@@ -23,7 +22,7 @@ public class PagamentoEntity {
     }
 
     // Construtor com todos os parâmetros
-    public PagamentoEntity(Integer id, String metodoPagamento, BigDecimal valorTotal) {
+    public PagamentoEntity(Long id, String metodoPagamento, BigDecimal valorTotal) {
         this.id = id;
         this.metodoPagamento = metodoPagamento;
         this.valorTotal = valorTotal;
@@ -36,11 +35,11 @@ public class PagamentoEntity {
     }
 
     // Getters e Setters
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

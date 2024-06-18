@@ -3,15 +3,25 @@
 <head>
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"/>
     <link href="/confirmacao.css" rel="stylesheet"/>
-    <title>Document</title></head>
+    <title>Confirmação de Reserva</title>
+</head>
 <body>
-<div class="v66_301"><span class="v66_302">Tem a certeza que pretende cancelar a reserva?</span>
+<div class="v66_301">
+    <span class="v66_302">Tem a certeza que pretende realizar esta reserva no valor de <span th:text="${pagamento.precoTotal}"></span> €?</span>
     <div class="v66_304">
-        <div class="v66_305"></div>
-        <span class="v66_306">Sim</span></div>
+        <form action="/confirmarReserva" method="post">
+            <input type="hidden" name="id_recinto" th:value="${reserva.recinto.id}" />
+            <input type="hidden" name="data" th:value="${reserva.data}" />
+            <input type="hidden" name="hora_inicio" th:value="${reserva.horaInicio}" />
+            <input type="hidden" name="hora_fim" th:value="${reserva.horaFim}" />
+            <input type="hidden" name="metodo_pagamento" th:value="${metodoPagamento}" />
+            <button type="submit" class="v66_306">Sim</button>
+        </form>
+    </div>
     <div class="v66_307">
         <div class="v66_308"></div>
-        <span class="v66_309">Não</span></div>
+        <a href="/reserva" class="v66_309">Não</a>
+    </div>
 </div>
 </body>
 </html>
